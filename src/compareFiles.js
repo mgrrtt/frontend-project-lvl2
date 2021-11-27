@@ -23,5 +23,5 @@ export default (data1, data2) => {
     return [`- ${key}: ${data1Obj[key]}`, `+ ${key} ${data2Obj[key]}`];
   });
 
-  return `{\n  ${analizedData.join('\n  ')} \n}`;
+  return `{\n  ${analizedData.join('\n  ')}\n}`;
 };

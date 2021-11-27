@@ -8,7 +8,8 @@
     "gendiff": "bin/gendiff.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx jest",
+    "test-watch": "npx jest --watch"
   },
   "repository": {
     "type": "git",
@@ -26,7 +27,10 @@
     "eslint-plugin-import": "^2.25.3"
   },
   "dependencies": {
+    "@jest/globals": "^27.3.1",
     "commander": "^8.3.0",
+    "jest": "^27.3.1",
+    "jest-cli": "^27.3.1",
     "lodash": "^4.17.21"
   }
 }
