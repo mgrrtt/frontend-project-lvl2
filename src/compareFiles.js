@@ -1,9 +1,9 @@
 import _ from 'lodash';
 
-export default (data1, data2) => {
-  // это можно в отдельную функцию
-  const data1Obj = JSON.parse(data1);
-  const data2Obj = JSON.parse(data2);
+export default (data1Obj, data2Obj) => {
+  if (typeof (data1Obj) !== 'object' || typeof (data2Obj) !== 'object') {
+    return 'Wrong file extname!';
+  }
 
   const keys = _.union(Object.keys(data1Obj), Object.keys(data2Obj))
     .sort();
