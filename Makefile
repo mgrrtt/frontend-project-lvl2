@@ -15,3 +15,6 @@ test:
 
 watch:
 		npm run test-watch
+
+cover:
+		npm run test-cover

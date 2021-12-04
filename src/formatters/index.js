@@ -8,6 +8,9 @@ export default (tree, options = { format: 'stylish' }) => {
   if (options.format === 'plain') {
     return formatPlain(tree);
   }
+  if (options.format === 'json') {
+    return JSON.stringify(tree);
+  }
 
-  return `error: unknown format "${options.format}"! Choices: "stylish", "plain"`;
+  return `error: unknown format "${options.format}"! Choices: "stylish", "plain", "json"`;
 };

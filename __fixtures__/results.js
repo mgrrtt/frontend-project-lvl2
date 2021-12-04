@@ -1,105 +1,47 @@
-export const resultFlat = `{
-  - follow: false
-    host: hexlet.io
-  - proxy: 123.234.53.22
-  - timeout: 50
-  + timeout: 20
-  + verbose: true
+export const resultStylish = `{
+    common: {
+      + follow: false
+        setting1: Value 1
+      - setting2: 200
+      - setting3: true
+      + setting3: null
+      + setting4: blah blah
+      + setting5: {
+            key5: value5
+        }
+        setting6: {
+            doge: {
+              - wow:
+              + wow: so much
+            }
+            key: value
+          + ops: vops
+        }
+    }
+    group1: {
+      - baz: bas
+      + baz: bars
+        foo: bar
+      - nest: {
+            key: value
+        }
+      + nest: str
+    }
+  - group2: {
+        abc: 12345
+        deep: {
+            id: 45
+        }
+    }
+  + group3: {
+        deep: {
+            id: {
+                number: 45
+            }
+        }
+        fee: 100500
+    }
 }`;
-
-export const resultNested = `{
-common: {
-+ follow: false
-  setting1: Value 1
-- setting2: 200
-- setting3: true
-+ setting3: null
-+ setting4: blah blah
-+ setting5: {
- key5: value5
-}
-setting6: {
-doge: {
-- wow: 
-+ wow: so much
-}
-  key: value
-+ ops: vops
-}
-}
-group1: {
-- baz: bas
-+ baz: bars
-  foo: bar
-- nest: {
- key: value
-}
-+ nest: str
-}
-- group2: {
- abc: 12345
-}
-{
- deep: {
- id: 45
-}
-}
-+ group3: {
- deep: {
- id: {
- number: 45
-}
-}
-}
-{
- fee: 100500
-}
-}`;
-
-// export const resultNested = `{
-//     common: {
-//       + follow: false
-//         setting1: Value 1
-//       - setting2: 200
-//       - setting3: true
-//       + setting3: null
-//       + setting4: blah blah
-//       + setting5: {
-//             key5: value5
-//         }
-//         setting6: {
-//             doge: {
-//               - wow:
-//               + wow: so much
-//             }
-//             key: value
-//           + ops: vops
-//         }
-//     }
-//     group1: {
-//       - baz: bas
-//       + baz: bars
-//         foo: bar
-//       - nest: {
-//             key: value
-//         }
-//       + nest: str
-//     }
-//   - group2: {
-//         abc: 12345
-//         deep: {
-//             id: 45
-//         }
-//     }
-//   + group3: {
-//         deep: {
-//             id: {
-//                 number: 45
-//             }
-//         }
-//         fee: 100500
-//     }
-// }`;
 
 export const resultPlain = `Property 'common.follow' was added with value: false
 Property 'common.setting2' was removed
@@ -113,7 +55,4 @@ Property 'group1.nest' was updated. From [complex value] to 'str'
 Property 'group2' was removed
 Property 'group3' was added with value: [complex value]`;
 
-// export const resultPlain = `Property 'follow' was removed
-// Property 'proxy' was removed
-// Property 'timeout' was updated. From 50 to 20
-// Property 'verbose' was added with value: true`;
+export const resultJSON = '[{"key":"common","children":[{"key":"follow","value":false,"type":"added"},{"key":"setting1","value":"Value 1","type":"unchanged"},{"key":"setting2","value":200,"type":"removed"},{"key":"setting3","oldValue":true,"newValue":null,"type":"updated"},{"key":"setting4","value":"blah blah","type":"added"},{"key":"setting5","value":{"key5":"value5"},"type":"added"},{"key":"setting6","children":[{"key":"doge","children":[{"key":"wow","oldValue":"","newValue":"so much","type":"updated"}],"type":"object"},{"key":"key","value":"value","type":"unchanged"},{"key":"ops","value":"vops","type":"added"}],"type":"object"}],"type":"object"},{"key":"group1","children":[{"key":"baz","oldValue":"bas","newValue":"bars","type":"updated"},{"key":"foo","value":"bar","type":"unchanged"},{"key":"nest","oldValue":{"key":"value"},"newValue":"str","type":"updated"}],"type":"object"},{"key":"group2","value":{"abc":12345,"deep":{"id":45}},"type":"removed"},{"key":"group3","value":{"deep":{"id":{"number":45}},"fee":100500},"type":"added"}]';
