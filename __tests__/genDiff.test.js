@@ -1,38 +1,60 @@
 import { test, expect } from '@jest/globals';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
+// import fs from 'fs';
 
 import genDiff from '../index.js';
 
-import { resultFlat, resultNested } from '../__fixtures__/results.js';
+import {
+  resultFlat,
+  resultPlain,
+  // resultNested,
+} from '../__fixtures__/results';
 
-const filePath1 = './__fixtures__/file1.json';
-const filePath2 = './__fixtures__/file2.json';
-const filePath3 = './__fixtures__/file1.yml';
-const filePath4 = './__fixtures__/file2.yml';
-const filePath5 = './__fixtures__/fileNested1.json';
-const filePath6 = './__fixtures__/fileNested2.json';
-const filePath7 = './__fixtures__/fileNested1.yml';
-const filePath8 = './__fixtures__/fileNested2.yml';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+// const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
 test('compare flat json files', () => {
-  expect(genDiff(filePath1, filePath2)).toEqual(resultFlat);
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json')))
+    .toEqual(resultFlat);
 });
 
 test('compare flat yaml files', () => {
-  expect(genDiff(filePath3, filePath4)).toEqual(resultFlat);
+  expect(genDiff(getFixturePath('file1.yml'), getFixturePath('file2.yml')))
+    .toEqual(resultFlat);
 });
 
 test('compare flat yaml and json files', () => {
-  expect(genDiff(filePath1, filePath4)).toEqual(resultFlat);
+  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.yml')))
+    .toEqual(resultFlat);
 });
 
-test('compare nested json files', () => {
-  expect(genDiff(filePath5, filePath6)).toEqual(resultNested);
+test('compare json files whith plain formatter', () => {
+  const res = genDiff(getFixturePath('fileNested1.json'), getFixturePath('fileNested2.json'), { format: 'plain' });
+  expect(res).toEqual(resultPlain);
 });
 
-test('compare nested yaml files', () => {
-  expect(genDiff(filePath7, filePath8)).toEqual(resultNested);
+test('compare yaml files whith plain formatter', () => {
+  const res = genDiff(getFixturePath('fileNested1.yml'), getFixturePath('fileNested2.yml'), { format: 'plain' });
+  expect(res).toEqual(resultPlain);
 });
 
-test('compare nested yaml and json files', () => {
-  expect(genDiff(filePath5, filePath8)).toEqual(resultNested);
+test('compare yaml and json files whith plain formatter', () => {
+  const res = genDiff(getFixturePath('fileNested1.json'), getFixturePath('fileNested2.yml'), { format: 'plain' });
+  expect(res).toEqual(resultPlain);
 });
+
+// test('compare nested json files', () => {
+//   expect(genDiff(filePath5, filePath6)).toEqual(resultNested);
+// });
+
+// test('compare nested yaml files', () => {
+//   expect(genDiff(filePath7, filePath8)).toEqual(resultNested);
+// });
+
+// test('compare nested yaml and json files', () => {
+//   expect(genDiff(filePath5, filePath8)).toEqual(resultNested);
+// });

@@ -1,5 +1,6 @@
 import readFile from './src/readFile.js';
-import compareFiles, { getOutput } from './src/compareFiles.js';
+import compareFiles from './src/compareFiles.js';
+import getOutput from './src/formatters/index.js';
 
 export default (file1, file2, options) => {
   const data1 = readFile(file1);
