@@ -8,7 +8,7 @@ import setFormat from '../src/formatters/index.js';
 import setParser from '../src/parsers.js';
 
 import {
-  // resultStylish,
+  resultStylish,
   resultPlain,
   resultJSON,
 } from '../__fixtures__/results';
@@ -33,20 +33,20 @@ test('wrong formatter', () => {
 
 // stylish
 
-// test('compare json files using stylish formatter', () => {
-//   expect(genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.json')))
-//     .toEqual(resultStylish);
-// });
+test('compare json files using stylish formatter', () => {
+  expect(genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.json')))
+    .toEqual(resultStylish);
+});
 
-// test('compare yaml files using stylish formatter', () => {
-//   expect(genDiff(getFixturePath('oldFile.yml'), getFixturePath('newFile.yml')))
-//     .toEqual(resultStylish);
-// });
+test('compare yaml files using stylish formatter', () => {
+  expect(genDiff(getFixturePath('oldFile.yml'), getFixturePath('newFile.yml')))
+    .toEqual(resultStylish);
+});
 
-// test('compare yaml and json files using stylish formatter', () => {
-//   expect(genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.yml')))
-//     .toEqual(resultStylish);
-// });
+test('compare yaml and json files using stylish formatter', () => {
+  expect(genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.yml')))
+    .toEqual(resultStylish);
+});
 
 // plain
 
