@@ -1,16 +1,16 @@
 import formatStylish from './stylish.js';
 import formatPlain from './plain.js';
 
-export default (tree, options = { format: 'stylish' }) => {
-  if (options.format === 'stylish' || !options.format) {
+export default (tree, format = 'stylish') => {
+  if (format === 'stylish' || !format) {
     return formatStylish(tree);
   }
-  if (options.format === 'plain') {
+  if (format === 'plain') {
     return formatPlain(tree);
   }
-  if (options.format === 'json') {
+  if (format === 'json') {
     return JSON.stringify(tree);
   }
 
-  return `error: unknown format "${options.format}"! Choices: "stylish", "plain", "json"`;
+  return `error: unknown format "${format}"! Choices: "stylish", "plain", "json"`;
 };

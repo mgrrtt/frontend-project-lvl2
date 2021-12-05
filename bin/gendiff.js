@@ -16,7 +16,7 @@ program
   .version(config.version)
   .action(
     (filepath1, filepath2) => {
-      console.log(genDiff(filepath1, filepath2, program.opts()));
+      console.log(genDiff(filepath1, filepath2, program.opts().format));
     },
   )
   .parse();

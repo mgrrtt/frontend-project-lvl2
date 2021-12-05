@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 const compareFiles = (data1, data2) => {
-  const keys = _.union(Object.keys(data1), Object.keys(data2)).sort();
+  const keys = _.union(Object.keys(data1), Object.keys(data2));
 
   const analizedData = keys.map((key) => {
     if (_.isObject(data1[key]) && _.isObject(data2[key])) {
@@ -25,7 +25,7 @@ const compareFiles = (data1, data2) => {
     return 'Error!';
   });
 
-  return analizedData;
+  return _.sortBy(analizedData, (item) => item.key);
 };
 
 export default compareFiles;

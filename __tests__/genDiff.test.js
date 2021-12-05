@@ -27,7 +27,7 @@ test('wrong file extention', () => {
 });
 
 test('wrong formatter', () => {
-  expect(setFormat({}, { format: 'unknown' }))
+  expect(setFormat({}, 'unknown'))
     .toEqual('error: unknown format "unknown"! Choices: "stylish", "plain", "json"');
 });
 
@@ -51,38 +51,38 @@ test('compare yaml and json files using stylish formatter', () => {
 // plain
 
 test('compare json files using plain formatter', () => {
-  const res = genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.json'), { format: 'plain' });
+  const res = genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.json'), 'plain');
   expect(res).toEqual(resultPlain);
 });
 
 test('compare yml files using plain formatter', () => {
-  const res = genDiff(getFixturePath('oldFile.yml'), getFixturePath('newFile.yml'), { format: 'plain' });
+  const res = genDiff(getFixturePath('oldFile.yml'), getFixturePath('newFile.yml'), 'plain');
   expect(res).toEqual(resultPlain);
 });
 
 test('compare yaml files using plain formatter', () => {
-  const res = genDiff(getFixturePath('oldFile.yaml'), getFixturePath('newFile.yaml'), { format: 'plain' });
+  const res = genDiff(getFixturePath('oldFile.yaml'), getFixturePath('newFile.yaml'), 'plain');
   expect(res).toEqual(resultPlain);
 });
 
 test('compare yaml and json files using plain formatter', () => {
-  const res = genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.yml'), { format: 'plain' });
+  const res = genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.yml'), 'plain');
   expect(res).toEqual(resultPlain);
 });
 
 // JSON
 
 test('compare json files using json formatter', () => {
-  const res = genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.json'), { format: 'json' });
+  const res = genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.json'), 'json');
   expect(res).toEqual(resultJSON);
 });
 
 test('compare yaml files using json formatter', () => {
-  const res = genDiff(getFixturePath('oldFile.yml'), getFixturePath('newFile.yml'), { format: 'json' });
+  const res = genDiff(getFixturePath('oldFile.yml'), getFixturePath('newFile.yml'), 'json');
   expect(res).toEqual(resultJSON);
 });
 
 test('compare yaml and json files using json formatter', () => {
-  const res = genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.yml'), { format: 'json' });
+  const res = genDiff(getFixturePath('oldFile.json'), getFixturePath('newFile.yml'), 'json');
   expect(res).toEqual(resultJSON);
 });
