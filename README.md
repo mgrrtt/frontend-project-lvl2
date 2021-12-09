@@ -46,6 +46,9 @@ $ gendiff filepath1.json filepath2.json
 
 ```
 $ git clone
-$ npm install
+$ make install
+$ (sudo) npm link
 $ gendiff -h
 ```
+
+[![asciicast](https://asciinema.org/a/crpJTCefFlXGTTTfl9NUL6SV9.svg)](https://asciinema.org/a/crpJTCefFlXGTTTfl9NUL6SV9)
