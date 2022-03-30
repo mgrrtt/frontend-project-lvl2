@@ -51,4 +51,3 @@ $ (sudo) npm link
 $ gendiff -h
 ```
 
-[![asciicast](https://asciinema.org/a/crpJTCefFlXGTTTfl9NUL6SV9.svg)](https://asciinema.org/a/crpJTCefFlXGTTTfl9NUL6SV9)
