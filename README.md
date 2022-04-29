@@ -1,17 +1,25 @@
-### Hexlet tests and linter status:
 [![Actions Status](https://github.com/mgrrtt/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/mgrrtt/frontend-project-lvl2/actions)
 [![dev-checks](https://github.com/mgrrtt/frontend-project-lvl2/actions/workflows/dev-checks.yml/badge.svg)](https://github.com/mgrrtt/frontend-project-lvl2/actions/workflows/dev-checks.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/c12fa94b98cc4ba09169/maintainability)](https://codeclimate.com/github/mgrrtt/frontend-project-lvl2/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/c12fa94b98cc4ba09169/test_coverage)](https://codeclimate.com/github/mgrrtt/frontend-project-lvl2/test_coverage)
 
+&nbsp;
+&nbsp;
+
 ## Описание
 
 *Вычислитель отличий* – программа, определяющая разницу между двумя структурами данных. Это популярная задача, для решения которой существует множество онлайн сервисов, например [http://www.jsondiff.com/](http://www.jsondiff.com/). Подобный механизм используется при выводе тестов или при автоматическом отслеживании изменении в конфигурационных файлах.
 
+&nbsp;
+&nbsp;
+
 ## Возможности утилиты:
 
-- Поддержка разных входных форматов: *yaml*, *json*.
-- Генерация отчета в виде *plain text*, *stylish* и *json*.
+- Поддержка разных входных форматов: `yaml`, `json`.
+- Генерация отчета в виде `plain text`, `stylish` и `json`.
+
+&nbsp;
+&nbsp;
 
 ## Пример использования:
 
@@ -22,7 +30,11 @@ $ gendiff --format plain path/to/file.yml another/path/file.json
 Property 'common.follow' was added with value: false
 Property 'group1.baz' was updated. From 'bas' to 'bars'
 Property 'group2' was removed
+```
 
+&nbsp;
+
+```
 # формат stylish
 $ gendiff filepath1.json filepath2.json
 
@@ -40,6 +52,8 @@ $ gendiff filepath1.json filepath2.json
     }
 }
 ```
+&nbsp;
+&nbsp;
 
 ## Установка
 *Node.js 14+*
